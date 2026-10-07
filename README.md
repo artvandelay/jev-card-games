@@ -8,4 +8,4 @@ Jev returns a decision and a probability, not a paragraph. We asked it to play t
 
 **Takeaway.** Jev can replay a decision it has seen in words. Give it the fact in plain language. Leave a sure thing, like “never call with a jack,” to code. It will not work out how often to bluff.
 
-The reading page is [artvandelay.github.io/jev-card-games](https://artvandelay.github.io/jev-card-games). The full notes are [Blackjack](docs/blog/jev-blackjack-evaluation.md) and [Kuhn poker](docs/kuhn-poker-report.md).
+The reading page is [github.jigarkdoshi.com/jev-card-games](https://github.jigarkdoshi.com/jev-card-games). The full notes are [Blackjack](docs/blog/jev-blackjack-evaluation.md) and [Kuhn poker](docs/kuhn-poker-report.md).
