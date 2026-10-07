@@ -4,37 +4,165 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jev already knows blackjack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<!--
+  Direction: technical note, cool neutral, loose reading measure.
+  Type: Source Serif 4 for the article, IBM Plex Sans for labels and tables.
+  Color: oklch slate ink on a cool off-white. One link blue. No accent wash.
+  Density: loose. Radius 0. No cards, no shadows.
+-->
 <style>
-  :root { color-scheme: light; }
-  body {
-    font: 18px/1.5 Georgia, "Iowan Old Style", Palatino, serif;
-    color: #1a1a1a;
-    background: #fafaf8;
-    margin: 0;
-    padding: 4rem 1.25rem 5rem;
+  :root {
+    color-scheme: light;
+    --bg: oklch(98.2% 0.004 250);
+    --ink: oklch(27% 0.02 255);
+    --muted: oklch(48% 0.02 255);
+    --rule: oklch(88% 0.01 250);
+    --link: oklch(42% 0.09 250);
   }
-  main { max-width: 36rem; margin: 0 auto; }
-  h1 { font-size: 1.7rem; font-weight: 600; line-height: 1.25; margin: 0 0 1.25rem; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 1.125rem/1.6 "Source Serif 4", "Iowan Old Style", Palatino, serif;
+  }
+  main { max-width: 40rem; margin: 0 auto; padding: 4.5rem 1.25rem 5rem; }
+  .kicker, h2, table, figcaption, footer, .sources {
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  }
+  .kicker {
+    margin: 0 0 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0 0 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  h2 {
+    margin: 2.5rem 0 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
   p { margin: 0 0 1rem; }
-  .take { border-top: 1px solid #ccc; margin-top: 2rem; padding-top: 1.25rem; }
-  .take strong { font-weight: 600; }
-  footer { margin-top: 2.5rem; font: 14px/1.4 ui-sans-serif, system-ui, sans-serif; color: #666; }
-  a { color: inherit; }
+  a { color: var(--link); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.45rem 0.6rem 0.45rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th { font-weight: 500; color: var(--muted); }
+  figure { margin: 1.25rem 0 1.5rem; }
+  img { width: 100%; height: auto; display: block; }
+  figcaption {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  .sources { font-size: 0.95rem; line-height: 1.5; }
+  .sources ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+  .sources li { margin: 0.35rem 0; }
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  code {
+    font-family: ui-monospace, "IBM Plex Mono", monospace;
+    font-size: 0.86em;
+  }
 </style>
 </head>
 <body>
 <main>
+  <p class="kicker">22 September 2026 · TypeSafe Jev 1.13</p>
   <h1>Jev already knows blackjack. It does not know Kuhn poker.</h1>
-  <p>Jev returns a decision and a probability, not a paragraph. We asked it to play two card games.</p>
-  <p>Blackjack, with no rules in the prompt. It matched the textbook on 84% of decisions. It already knows the famous game. It stood on a soft 17, because we handed it the number 17 and a flag called <em>usable ace</em>, and never said an ace can drop from 11 to 1.</p>
-  <p>Kuhn poker, with the rules written out. A perfect opponent wins 0.22 chips a hand from it. Coin-flip play loses 0.46. Perfect play loses nothing. Jev calls with a jack, which cannot win, and folds a king, which cannot lose.</p>
-  <p class="take"><strong>Takeaway.</strong> Jev can replay a decision it has seen in words. Give it the fact in plain language. Leave a sure thing, like “never call with a jack,” to code. It will not work out how often to bluff.</p>
-  <footer>
-    TypeSafe Jev 1.13, September 2026.
-    <a href="https://github.com/artvandelay/jev-card-games/blob/main/docs/blog/jev-blackjack-evaluation.md">Blackjack</a>
-    ·
-    <a href="https://github.com/artvandelay/jev-card-games/blob/main/docs/kuhn-poker-report.md">Kuhn poker</a>
-  </footer>
+  <p>Jev is a decision model. You send it a state and a list of actions. It returns one action, a probability for each action, and a confidence score. It does not write a paragraph.</p>
+  <p>We played two card games with it, through the OpenRouter Decisions API. Blackjack is a famous one-player decision against a dealer who follows a fixed rule. Kuhn poker is a two-player game whose correct play is a mixed strategy. The first game is everywhere in text. The second is an academic example with twelve decision points and a known answer.</p>
+
+  <h2>Blackjack, with no rules in the prompt</h2>
+  <p>The environment was Gymnasium <code>Blackjack-v1</code>, Sutton and Barto rules. The prompt did not say that the goal is 21, that a total over 21 loses, or that the dealer draws to 17. The instruction was “Choose the action,” and the two options were stand and hit. The state was the observation from the environment: the player total, the dealer card, and a boolean named <code>usable_ace</code>.</p>
+  <p>A random sample of hands hides the rare ones. Soft 12 against a dealer 3 shows up about once in 2,200 deals. We used a grid instead: player totals 12 through 21, every dealer upcard, hard and soft, five deals each. That is 1,000 hands and 1,341 decisions.</p>
+  <table>
+    <thead><tr><th>Measure</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Agreement with basic strategy</td><td>83.7% (1,122 of 1,341)</td></tr>
+      <tr><td>Record</td><td>464 wins, 444 losses, 92 pushes</td></tr>
+      <tr><td>Mean return per hand</td><td>+0.020 ± 0.030</td></tr>
+      <tr><td>Median latency</td><td>415 ms</td></tr>
+      <tr><td>Cost for 1,000 hands</td><td>$0.019</td></tr>
+    </tbody>
+  </table>
+  <p>The mean return is not a claim about a casino. The grid deals a 20 as often as a 12. In a real shoe, the strong hands are more common.</p>
+  <p>On hard totals, the policy is the textbook one. Against a dealer 4, 5, or 6, Jev stood on every total from 12 to 21. Against a 7, 8, 9, 10, or ace, it hit 12 through 16 and stood on 17 through 21. Nobody told it that the dealer draws to 17.</p>
+  <figure>
+    <img src="img/policy_no_usable_ace.png" alt="Stand and hit policy for hard blackjack totals, player sum against dealer card.">
+    <figcaption>Hard totals. Light green is hit. Dark grey is stand.</figcaption>
+  </figure>
+  <p>Soft totals are where the state hides the rule. An ace counted as 11 can fall back to 1, so hitting soft 17 cannot bust. Basic strategy hits soft 17 against every dealer card. Jev stood. The state said <code>player_sum: 17</code> and <code>usable_ace: true</code>, and the prompt never said what the flag means. The number 17 is the fact the model used.</p>
+  <figure>
+    <img src="img/policy_usable_ace.png" alt="Stand and hit policy for soft blackjack totals.">
+    <figcaption>Soft totals. Jev treats 17 as a finished hand.</figcaption>
+  </figure>
+  <p>On a close call, the confidence dropped. Hard 15 against a dealer 2 is a stand in the textbook, and the two actions are worth almost the same. On one such hand Jev returned 50% hit, 50% stand, and confidence 0. On repeated visits, confidence stayed under 0.15. On hard 20 against a 6, confidence was above 0.85 and the stand probability was above 90%.</p>
+
+  <h2>Kuhn poker, with the rules written out</h2>
+  <p>Kuhn poker uses three cards, jack, queen, and king. Each player antes one chip and gets one card. A player can check or bet. A player who faces a bet can fold or call. The higher card wins at a showdown. There is one equilibrium value, −1/18 chips per hand for the first player. The second player’s equilibrium strategy is unique. The first player’s is a one-parameter family.</p>
+  <p>The full rules were in the question. The state held only facts: the card, the betting so far, the pot, and the chips to call. Option names matched the situation, so a pass was “check” with no bet live and “fold” when a bet was live. We asked Jev about all twelve situations, ten times each, and built a strategy table from the probabilities. OpenSpiel then computed the exact cost of that table against a perfect opponent. We also played 1,800 hands, 300 for each of three equilibrium opponents and both seats, sampling an action from the returned probabilities.</p>
+  <table>
+    <thead><tr><th>Player</th><th>Chips a perfect opponent wins per hand</th></tr></thead>
+    <tbody>
+      <tr><td>Nash</td><td>0</td></tr>
+      <tr><td>Jev</td><td>0.22</td></tr>
+      <tr><td>Coin flip</td><td>0.46</td></tr>
+    </tbody>
+  </table>
+  <p>Against the equilibrium opponent, the exact value of Jev’s table is −0.129 chips per hand in the first seat, where equilibrium itself is −0.056. In the second seat Jev loses about 0.07 to 0.08, where equilibrium wins 0.056. The 1,800 played hands landed on those numbers. Median latency was 429 ms. The played hands cost $0.049.</p>
+  <p>The mistakes are the ones a beginner makes. With no bet live, Jev bets 50% to 65% of the time on every card. Facing a bet, it calls with a jack about 40% of the time. A jack cannot win a showdown. It folds a king about 15% of the time. A king cannot lose one.</p>
+  <figure>
+    <img src="img/kuhn_policy.png" alt="Bar chart of Jev bet probability against the Nash bet probability for each of the twelve Kuhn poker situations.">
+    <figcaption>Bet or call probability. Blue is Jev. Orange is one Nash strategy. Green is the closest Nash strategy to Jev’s first-player frequencies.</figcaption>
+  </figure>
+  <p>Two extra yes-or-no questions rode along in the same call. “Is your card the higher one?” has answers 0, 0.5, and 1 for jack, queen, and king. Jev said 0.43, 0.54, and 0.57. “Is the opponent bluffing?” stayed near 0.5 in every situation.</p>
+
+  <h2>What this is for</h2>
+  <p>Jev can replay a decision that already exists in words. Blackjack, with the rules omitted, is that kind of decision, until the state compresses a rule into a name. Kuhn poker, with the rules supplied, still requires a frequency: how often to bluff, how often to call with the middle card. Jev did not find those frequencies.</p>
+  <p>Put the fact in plain language. A flag named <code>usable_ace</code> is not the fact. Leave a sure thing to code, such as “call with a king” and “fold a jack.” Use the probability when the call is close, as it was on hard 15 against a dealer 2. Do not read a low confidence as a mixed strategy. In Kuhn poker the low confidence arrived with the wrong action.</p>
+
+  <h2>Sources</h2>
+  <div class="sources">
+    <ul>
+      <li><a href="https://github.com/artvandelay/jev-card-games/blob/main/docs/blog/jev-blackjack-evaluation.md">Blackjack write-up</a>, with the grid, the latency, and the hard-15 example.</li>
+      <li><a href="https://github.com/artvandelay/jev-card-games/blob/main/results/index.html">Blackjack charts and hand log</a>.</li>
+      <li><a href="https://github.com/artvandelay/jev-card-games/blob/main/docs/kuhn-poker-report.md">Kuhn poker report</a>, with the twelve-row table, the checks, and the top-choice comparison.</li>
+      <li><a href="https://github.com/artvandelay/jev-card-games/blob/main/results/kuhn.html">Kuhn charts</a> and <a href="https://github.com/artvandelay/jev-card-games/blob/main/results/kuhn_metrics.json">metrics</a>.</li>
+      <li><a href="https://github.com/artvandelay/jev-card-games">Repository</a>. Blackjack code is in <code>src/blackjack_lab</code>. Kuhn code is in <code>src/kuhn_lab</code>.</li>
+    </ul>
+  </div>
+  <footer>Model <code>typesafe/jev-1.13</code>, called through the OpenRouter Decisions API.</footer>
 </main>
 </body>
 </html>
