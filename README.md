@@ -2,7 +2,7 @@
 
 Jev returns a decision and a probability, not a paragraph. On blackjack, with no rules in the prompt, it matched the textbook on 84% of decisions. On Kuhn poker, with the rules written out, a perfect opponent wins 0.22 chips a hand from it. Coin-flip play loses 0.46. Perfect play loses nothing.
 
-The post is at [github.jigarkdoshi.com/jev-card-games](https://github.jigarkdoshi.com/jev-card-games).
+The post is at [artvandelay.github.io/jev-card-games](https://artvandelay.github.io/jev-card-games).
 
 For the full record:
 
