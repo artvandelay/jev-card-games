@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blackjack-lab"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "gymnasium[toy-text]>=1.0",
+  "open_spiel>=2.0",
+  "numpy",
+  "matplotlib",
+  "seaborn",
+  "python-dotenv",
+]
+
+[project.scripts]
+blackjack-lab = "blackjack_lab.__main__:main"
+kuhn-lab = "kuhn_lab.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

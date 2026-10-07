@@ -1,0 +1,29 @@
+{
+  "total_episodes": 100,
+  "total_decisions": 140,
+  "wins": 37,
+  "losses": 53,
+  "pushes": 10,
+  "win_rate": 0.37,
+  "loss_rate": 0.53,
+  "push_rate": 0.1,
+  "mean_reward": -0.16,
+  "reward_stderr": 0.09398044069019486,
+  "latency_ms": {
+    "mean": 495.25357142857143,
+    "p50": 445.95,
+    "p90": 588.2400000000001,
+    "p95": 772.4199999999997,
+    "p99": 1628.8749999999939,
+    "min": 337.2,
+    "max": 1837.7
+  },
+  "cost": {
+    "total_cost": 0.001941912,
+    "cost_per_decision": 1.3870800000000001e-05,
+    "cost_per_episode": 1.941912e-05,
+    "total_input_tokens": 46236,
+    "total_output_tokens": 4340
+  },
+  "basic_strategy_agreement_rate": 0.9071428571428571
+}

@@ -1,0 +1,193 @@
+{
+  "overall": {
+    "hands": 1800,
+    "mean_jev_return": -0.12277777777777778,
+    "jev_return_stderr": 0.03370125884118314,
+    "wins": 974,
+    "losses": 826,
+    "zeros": 0,
+    "win_rate": 0.5411111111111111,
+    "loss_rate": 0.4588888888888889,
+    "latency_ms": {
+      "mean": 451.8618514750763,
+      "p50": 429.4,
+      "p90": 515.95,
+      "p95": 555.2,
+      "p99": 996.0749999999992,
+      "min": 323.5,
+      "max": 2047.8
+    },
+    "cost": {
+      "total_cost": 0.048921684,
+      "cost_per_decision": 2.4883867751780264e-05,
+      "cost_per_hand": 2.7178713333333333e-05,
+      "total_input_tokens": 1164802,
+      "total_output_tokens": 112316
+    },
+    "gap_vs_exact_value": null
+  },
+  "by_config": {
+    "alpha=0.0_seat=0": {
+      "hands": 300,
+      "mean_jev_return": -0.02666666666666667,
+      "jev_return_stderr": 0.08339150700820776,
+      "wins": 180,
+      "losses": 120,
+      "zeros": 0,
+      "win_rate": 0.6,
+      "loss_rate": 0.4,
+      "latency_ms": {
+        "mean": 442.9881844380403,
+        "p50": 430.8,
+        "p90": 506.92,
+        "p95": 535.5699999999999,
+        "p99": 673.4160000000005,
+        "min": 343.1,
+        "max": 1459.0
+      },
+      "cost": {
+        "total_cost": 0.008575602,
+        "cost_per_decision": 2.4713550432276658e-05,
+        "cost_per_hand": 2.8585339999999998e-05,
+        "total_input_tokens": 204181,
+        "total_output_tokens": 19425
+      },
+      "gap_vs_exact_value": 0.10188411111111106
+    },
+    "alpha=0.0_seat=1": {
+      "hands": 300,
+      "mean_jev_return": -0.11,
+      "jev_return_stderr": 0.07667636020343443,
+      "wins": 163,
+      "losses": 137,
+      "zeros": 0,
+      "win_rate": 0.5433333333333333,
+      "loss_rate": 0.45666666666666667,
+      "latency_ms": {
+        "mean": 436.42066666666665,
+        "p50": 427.95000000000005,
+        "p90": 510.5900000000001,
+        "p95": 529.985,
+        "p99": 612.2339999999996,
+        "min": 335.0,
+        "max": 766.9
+      },
+      "cost": {
+        "total_cost": 0.007434,
+        "cost_per_decision": 2.478e-05,
+        "cost_per_hand": 2.478e-05,
+        "total_input_tokens": 177000,
+        "total_output_tokens": 15900
+      },
+      "gap_vs_exact_value": -0.04022222222222217
+    },
+    "alpha=0.16666666666666666_seat=0": {
+      "hands": 300,
+      "mean_jev_return": -0.16666666666666666,
+      "jev_return_stderr": 0.08284696417078373,
+      "wins": 164,
+      "losses": 136,
+      "zeros": 0,
+      "win_rate": 0.5466666666666666,
+      "loss_rate": 0.4533333333333333,
+      "latency_ms": {
+        "mean": 435.967335243553,
+        "p50": 427.3,
+        "p90": 505.24,
+        "p95": 527.8,
+        "p99": 589.824,
+        "min": 329.0,
+        "max": 692.9
+      },
+      "cost": {
+        "total_cost": 0.008627934,
+        "cost_per_decision": 2.4721873925501433e-05,
+        "cost_per_hand": 2.875978e-05,
+        "total_input_tokens": 205427,
+        "total_output_tokens": 19575
+      },
+      "gap_vs_exact_value": -0.03811588888888892
+    },
+    "alpha=0.16666666666666666_seat=1": {
+      "hands": 300,
+      "mean_jev_return": -0.09333333333333334,
+      "jev_return_stderr": 0.08201657571452299,
+      "wins": 161,
+      "losses": 139,
+      "zeros": 0,
+      "win_rate": 0.5366666666666666,
+      "loss_rate": 0.4633333333333333,
+      "latency_ms": {
+        "mean": 466.43266666666665,
+        "p50": 427.2,
+        "p90": 513.95,
+        "p95": 564.535,
+        "p99": 1494.0939999999996,
+        "min": 343.1,
+        "max": 2047.8
+      },
+      "cost": {
+        "total_cost": 0.007513968,
+        "cost_per_decision": 2.5046560000000002e-05,
+        "cost_per_hand": 2.5046560000000002e-05,
+        "total_input_tokens": 178904,
+        "total_output_tokens": 17396
+      },
+      "gap_vs_exact_value": -0.016722222222222152
+    },
+    "alpha=0.3333333333333333_seat=0": {
+      "hands": 300,
+      "mean_jev_return": -0.32,
+      "jev_return_stderr": 0.08214515254691855,
+      "wins": 146,
+      "losses": 154,
+      "zeros": 0,
+      "win_rate": 0.4866666666666667,
+      "loss_rate": 0.5133333333333333,
+      "latency_ms": {
+        "mean": 479.04702702702707,
+        "p50": 431.6,
+        "p90": 566.11,
+        "p95": 735.1500000000001,
+        "p99": 1592.614,
+        "min": 323.5,
+        "max": 1857.8
+      },
+      "cost": {
+        "total_cost": 0.00917742,
+        "cost_per_decision": 2.4803837837837838e-05,
+        "cost_per_hand": 3.05914e-05,
+        "total_input_tokens": 218510,
+        "total_output_tokens": 21150
+      },
+      "gap_vs_exact_value": -0.19144922222222227
+    },
+    "alpha=0.3333333333333333_seat=1": {
+      "hands": 300,
+      "mean_jev_return": -0.02,
+      "jev_return_stderr": 0.08731597945140698,
+      "wins": 160,
+      "losses": 140,
+      "zeros": 0,
+      "win_rate": 0.5333333333333333,
+      "loss_rate": 0.4666666666666667,
+      "latency_ms": {
+        "mean": 447.95833333333326,
+        "p50": 431.1,
+        "p90": 514.73,
+        "p95": 539.5550000000001,
+        "p99": 669.8989999999949,
+        "min": 343.7,
+        "max": 1340.5
+      },
+      "cost": {
+        "total_cost": 0.00759276,
+        "cost_per_decision": 2.5309199999999998e-05,
+        "cost_per_hand": 2.5309199999999998e-05,
+        "total_input_tokens": 180780,
+        "total_output_tokens": 18870
+      },
+      "gap_vs_exact_value": 0.06344444444444443
+    }
+  }
+}
