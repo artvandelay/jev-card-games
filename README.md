@@ -1,16 +1,11 @@
-# Jev card games
+# Jev already knows blackjack. It does not know Kuhn poker.
 
-Two evaluations of TypeSafe Jev (`typesafe/jev-1.13`, via the OpenRouter Decisions API) on card games.
+Jev returns a decision and a probability, not a paragraph. We asked it to play two card games.
 
-- **Blackjack.** Gymnasium `Blackjack-v1`, no rules in the prompt. Jev matched basic strategy on 83.7% of decisions. Write-up: [docs/blog/jev-blackjack-evaluation.md](docs/blog/jev-blackjack-evaluation.md). Charts: [results/index.html](results/index.html).
-- **Kuhn Poker.** OpenSpiel `kuhn_poker` against a Nash opponent, with the rules in the question. Jev is about halfway between perfect and random play (exploitability 0.22 chips per hand). Write-up: [docs/kuhn-poker-report.md](docs/kuhn-poker-report.md). Charts: [results/kuhn.html](results/kuhn.html).
+**Blackjack, no rules in the prompt.** It matched the textbook on 84% of decisions. It already knows the famous game. It stood on a soft 17, because we handed it the number 17 and a flag called *usable ace*, and never said an ace can drop from 11 to 1.
 
-Notes on the model are in `learning-lev/`. Code is in `src/blackjack_lab/` and `src/kuhn_lab/`.
+**Kuhn poker, rules written out.** A perfect opponent wins 0.22 chips a hand from it. Coin-flip play loses 0.46. Perfect play loses nothing. Jev calls with a jack, which cannot win, and folds a king, which cannot lose.
 
-```bash
-uv pip install -e .
-blackjack-lab --help
-kuhn-lab --help
-```
+**Takeaway.** Jev can replay a decision it has seen in words. Give it the fact in plain language. Leave a sure thing, like “never call with a jack,” to code. It will not work out how often to bluff.
 
-The API key belongs in `.env` as `OPENROUTER_API_KEY`. That file is not in this repo.
+The reading page is [artvandelay.github.io/jev-card-games](https://artvandelay.github.io/jev-card-games). The full notes are [Blackjack](docs/blog/jev-blackjack-evaluation.md) and [Kuhn poker](docs/kuhn-poker-report.md).

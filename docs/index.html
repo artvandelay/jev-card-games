@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jev already knows blackjack</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    font: 18px/1.5 Georgia, "Iowan Old Style", Palatino, serif;
+    color: #1a1a1a;
+    background: #fafaf8;
+    margin: 0;
+    padding: 4rem 1.25rem 5rem;
+  }
+  main { max-width: 36rem; margin: 0 auto; }
+  h1 { font-size: 1.7rem; font-weight: 600; line-height: 1.25; margin: 0 0 1.25rem; }
+  p { margin: 0 0 1rem; }
+  .take { border-top: 1px solid #ccc; margin-top: 2rem; padding-top: 1.25rem; }
+  .take strong { font-weight: 600; }
+  footer { margin-top: 2.5rem; font: 14px/1.4 ui-sans-serif, system-ui, sans-serif; color: #666; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Jev already knows blackjack. It does not know Kuhn poker.</h1>
+  <p>Jev returns a decision and a probability, not a paragraph. We asked it to play two card games.</p>
+  <p>Blackjack, with no rules in the prompt. It matched the textbook on 84% of decisions. It already knows the famous game. It stood on a soft 17, because we handed it the number 17 and a flag called <em>usable ace</em>, and never said an ace can drop from 11 to 1.</p>
+  <p>Kuhn poker, with the rules written out. A perfect opponent wins 0.22 chips a hand from it. Coin-flip play loses 0.46. Perfect play loses nothing. Jev calls with a jack, which cannot win, and folds a king, which cannot lose.</p>
+  <p class="take"><strong>Takeaway.</strong> Jev can replay a decision it has seen in words. Give it the fact in plain language. Leave a sure thing, like “never call with a jack,” to code. It will not work out how often to bluff.</p>
+  <footer>
+    TypeSafe Jev 1.13, September 2026.
+    <a href="https://github.com/artvandelay/jev-card-games/blob/main/docs/blog/jev-blackjack-evaluation.md">Blackjack</a>
+    ·
+    <a href="https://github.com/artvandelay/jev-card-games/blob/main/docs/kuhn-poker-report.md">Kuhn poker</a>
+  </footer>
+</main>
+</body>
+</html>
